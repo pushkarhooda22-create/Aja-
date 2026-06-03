@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock - Multiple Time Zones</title>
+    <link rel="stylesheet" href="clock-styles.css">
+</head>
+<body>
+    <div class="clock-container">
+        <div class="header">
+            <h1>🌍 World Clock</h1>
+            <p>Real-time across different time zones</p>
+        </div>
+
+        <div class="controls">
+            <button class="btn add-clock-btn" onclick="openAddClockModal()">+ Add Time Zone</button>
+            <button class="btn reset-btn" onclick="resetToDefault()">Reset to Default</button>
+        </div>
+
+        <div class="clocks-grid" id="clocksGrid">
+            <!-- Clock cards will be generated here -->
+        </div>
+    </div>
+
+    <!-- Modal for adding new time zone -->
+    <div id="addClockModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddClockModal()">&times;</span>
+            <h2>Add a New Time Zone</h2>
+            <form onsubmit="addNewClock(event)">
+                <div class="form-group">
+                    <label for="cityName">City Name:</label>
+                    <input type="text" id="cityName" placeholder="e.g., Tokyo" required>
+                </div>
+                <div class="form-group">
+                    <label for="timezoneOffset">UTC Offset (e.g., +5:30, -8):</label>
+                    <input type="text" id="timezoneOffset" placeholder="e.g., +5:30" required>
+                </div>
+                <button type="submit" class="btn submit-btn">Add Clock</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="clock-script.js"></script>
+</body>
+</html>
